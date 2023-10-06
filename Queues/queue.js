@@ -15,6 +15,21 @@ function display() {
     console.log(queue);
 }
 
+function dequeue() {
+    if (currentSize > 0) {
+        for (let i = 0; i < currentSize; i++) {
+            queue[i] = queue[i+1];
+        }
+        currentSize--;
+        queue.length = currentSize;
+
+    }else {
+        console.log("Queue is already empty.")
+    }
+}
+
+
+
 enqueue(10);
 enqueue(29);
 enqueue(60);
@@ -26,4 +41,7 @@ display();
 enqueue(10);
 enqueue(29);
 enqueue(60);
+display();
+dequeue();
+dequeue();
 display();
