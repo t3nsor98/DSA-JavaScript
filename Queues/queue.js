@@ -28,6 +28,16 @@ function dequeue() {
     }
 }
 
+function front() {
+    let frontNum = currentSize > 0 ? queue[0] : "Queue is already empty.";
+    console.log(frontNum);
+}
+
+function back() {
+    let backNum = currentSize > 0 ? queue[currentSize - 1] : "Queue is already empty.";
+    console.log(backNum);
+}
+
 
 
 enqueue(10);
@@ -43,5 +53,6 @@ enqueue(29);
 enqueue(60);
 display();
 dequeue();
-dequeue();
 display();
+front();
+back();
