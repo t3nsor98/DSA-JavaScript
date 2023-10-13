@@ -54,5 +54,6 @@ myQueue.enqueue(40);
 myQueue.enqueue(50);
 myQueue.enqueue(60);
 myQueue.dequeue();
+myQueue.enqueue(111);
 // console.log(myQueue);
 myQueue.display();
