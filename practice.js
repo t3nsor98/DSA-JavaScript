@@ -1,18 +1,18 @@
-//method 2
-let arr = [1,2,3,4,5,6,7,8,9];
+//Insertion sort
 
-function descendingSort(data) {
-    let minIndex = undefined;
-    for (let i = 0; i < data.length;i++) {
-        minIndex = i;
-        for(let j = i+1; j < data.length; j++) {
-            if(data[j]>data[minIndex]) {
-                minIndex = j;
-            }
+let items = [11, 23, 5, 4, 3, 2, 1, 0];
+//
+
+function insertionSort(data) {
+    let i, current, j;
+    for (i = 1; i < data.length; i++) {
+        current = data[i];
+        j = i - 1;
+        while (j >= 0 && data[j] > current) {
+            data[j + 1] = data[j];
+            j -= 1;
+
         }
-        [data[i], data[minIndex]] = [data[minIndex], data[i]];
+        data[j + 1] = current;
     }
-    console.log(data);
 }
-
-descendingSort(arr);
