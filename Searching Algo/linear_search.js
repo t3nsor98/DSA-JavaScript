@@ -1,5 +1,5 @@
 //linear search using Iterative method
-
+// will have to revise before interview
 let data = [1,2,3,4,5,6,7,8,9,10];
 let find = 7;
 let start = 0;
