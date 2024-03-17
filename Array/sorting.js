@@ -12,5 +12,5 @@ for (let i = 0; i < arr.length; i++) {
 
 console.log(arr);
 
-const data = arr.sort((a, b) => (a - b));
-console.log(data);
+// const data = arr.sort((a, b) => (a - b));
+// console.log(data);
