@@ -33,7 +33,11 @@ class Stack {
         return this.stack.length;
     }
 
-    printStack() { }
+    printStack() {
+        for (let i = 0; i < this.stack.length; i++) {
+            console.log(`The ${i}th index member is : ${this.stack[i]}`);
+        }
+    }
 }
 
 const stack = new Stack();
@@ -41,16 +45,19 @@ const stack = new Stack();
 stack.push(10);
 stack.push(69);
 stack.push(420);
+stack.push(88);
 
-console.log(stack.size());
+stack.printStack();
 
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
+// console.log(stack.size());
 
-console.log(stack.peek());
+// console.log(stack.pop());
+// console.log(stack.pop());
+// console.log(stack.pop());
+// console.log(stack.pop());
 
-console.log(stack.isEmpty());
+// console.log(stack.peek());
 
-console.log(stack.size());
+// console.log(stack.isEmpty());
+
+// console.log(stack.size());
