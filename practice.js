@@ -1,47 +1,41 @@
-/**
- * @param {string} s
- * @return {string}
- */
+let arr = [2, 4, 5, 6];
 
-// "3[a]2[bc]"
-var decodeString = function (s) {
-    // Initialize an empty stack to hold characters
-    let stack = [];
-    // Initialize an empty string to build the decoded string
-    let str = '';
+// 2
 
-    // Loop through each character in the input string s
-    for (let i = 0; i < s.length; i++) {
-        // If the current character is a closing bracket
-        if (s[i] === ']') {
-            // Initialize an empty string to hold the substring
-            let substr = '';
+let target = 9;
 
-            // Pop characters from the stack until an opening bracket is found
-            while (stack[stack.length - 1] != '[') {
-                substr = stack.pop() + substr;
-            }
-            // Pop the opening bracket '[' from the stack
-            stack.pop();
+// function twoSum(arr, target) {
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = i + 1; j < arr.length; j++) {
+//             if (arr[i] + arr[j] === target) {
+//                 return [i, j];
+//             }
+//         }
+//     }
+// }
 
-            // Initialize an empty string to hold the repetition count
-            let k = '';
+// let answer =  twoSum(arr, target);
 
-            // Pop characters from the stack to get the repetition count
-            while (stack.length && !isNaN(stack[stack.length - 1])) {
-                k = stack.pop() + k;
-            }
+// console.log(answer);
 
-            // Repeat the substring 'substr' 'k' times and push it back onto the stack
-            stack.push(...substr.repeat(k));
-        } else {
-            // If the current character is not a closing bracket, push it onto the stack
-            stack.push(s[i]);
+
+function twoSum(nums, target) {
+    const numIndices = {};
+
+    for (let i = 0; i < nums.length; i++) {
+        const complement = target - nums[i];
+        if (numIndices.hasOwnProperty(complement)) {
+            return [numIndices[complement], i];
         }
+        numIndices[nums[i]] = i;
+        console.log(numIndices);
     }
 
-    // Join the stack elements into a single string to get the decoded string
-    return stack.join('');
-};
+    // If no solution is found
+    return null;
 
 
+}
+
+
+twoSum(arr, target);
