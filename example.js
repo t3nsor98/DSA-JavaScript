@@ -1,47 +1,23 @@
-<script>
-// Function to find majority element
-    function findMajority(nums)
-    {
-	var count = 0, candidate = -1;
+function getLucky(s, k) {
+  // Convert each letter to its corresponding position in the alphabet and concatenate them
+  let num = "";
+  for (let i = 0; i < s.length; i++) {
+    num += (s.charCodeAt(i) - "a".charCodeAt(0) + 1).toString();
+  }
 
-    // Finding majority candidate
-    for (var index = 0; index < nums.length; index++) {
-	if (count == 0) {
-        candidate = nums[index];
-    count = 1;
-	}
-    else {
-		if (nums[index] == candidate)
-    count++;
-    else
-    count--;
-	}
-	}
+  // Repeat the transformation k times
+  for (let i = 0; i < k; i++) {
+    let sum = 0;
+    for (let j = 0; j < num.length; j++) {
+      sum += parseInt(num[j]);
+    }
+    num = sum.toString();
+  }
 
-    // Checking if majority candidate occurs more than
-    // n/2 times
-    count = 0;
-    for (var index = 0; index < nums.length; index++) {
-	if (nums[index] == candidate)
-    count++;
-	}
-	if (count > (nums.length / 2))
-    return candidate;
-    return -1;
-
-	// The last for loop and the if statement step can
-	// be skip if a majority element is confirmed to
-	// be present in an array just return candidate
-	// in that case
+  return parseInt(num);
 }
 
-    // Driver code
-    var arr = [ 1, 1, 1, 1, 2, 3, 4 ];
-    var majority = findMajority(arr);
-    document.write(" The majority element is : "
-    + majority);
-
-
-// This code is contributed by shivanisinghss2110.
-
-</script>
+// Example usage:
+console.log(getLucky("iiii", 1)); // Output: 36
+console.log(getLucky("leetcode", 2)); // Output: 6
+console.log(getLucky("zbax", 2)); // Output: 8
